@@ -7,11 +7,11 @@ import "./style.css";
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-
+  
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
-
+  
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
@@ -19,7 +19,7 @@ const Cart = () => {
     });
     return sum.toFixed(2);
   }
-
+  
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
@@ -29,7 +29,8 @@ const Cart = () => {
       </div>
     );
   }
-
+  console.log(state)
+  
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>[close]</div>
